@@ -32,7 +32,7 @@
 
 
 .navline {
-    background-color: rgb(78, 78, 79);
+    background-color: #393840;
     height: 0.25%;
 }
 
@@ -46,6 +46,11 @@
     color: white;
     
 }
+
+.notesButtonActive {
+    background-color:#393840; /* Change this to your desired active color */
+    color: white; /* Change this to your desired active text color */
+  }
 .navsub:hover {
     background-color: #3b3465;
     
