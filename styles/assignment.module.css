@@ -1,0 +1,9 @@
+.full{
+    height: 90vh;
+    width: 82vw;
+    background-color: rgb(57, 56, 64);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}

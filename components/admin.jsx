@@ -1,8 +1,8 @@
 import React from 'react'
-
+import styles from '../styles/admin.module.css'
 const admin = () => {
   return (
-    <div>admin</div>
+    <div className={styles.full}><h1>ADMIN</h1></div>
   )
 }
 
