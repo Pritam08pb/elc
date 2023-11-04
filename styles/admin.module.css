@@ -1,9 +1,35 @@
 .full{
-    height: 90vh;
+    height: 100h;
     width: 82vw;
     background-color: rgb(57, 56, 64);
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    gap: 4vh;
+}
+.half{
+    height: 48%;
+    width: 100%;
+    background-color:rgb(57, 56, 64);
+    display:flex;
+    justify-content: space-around;
+
+}
+.note{
+    margin-top: 20px;
+    height: 95%;
+    width: 46%;
+    background-color:rgb(41, 41, 46);
+    border-radius: 9px;
+    display: flex;
+    color: rgb(196, 202, 211);
     justify-content: center;
+
+}
+.check{
+    height: 46%;
+    width: 100%;
+    background-color: rgb(50, 49, 55);
+    display: flex;
     overflow: hidden;
 }
