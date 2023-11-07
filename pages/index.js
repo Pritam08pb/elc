@@ -5,8 +5,8 @@ import styles from '@/styles/Home.module.css'
 import Resource from '@/components/resourse'
 import Navigation from '../components/navigation'
 import Admin from'../components/admin'
-// import Forum from '../components/forum'
-// import Assignment from '../components/assignment'
+import Forum from '../components/forum'
+import Assignment from '../components/assignment'
 import { useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -23,8 +23,8 @@ export default function Home() {
        
         {val === 'Home' && <Admin />}
         {val === 'Resource' && <Resource />}
-        {val === 'Admin' && <Admin />}
-        {val === 'Forum' && <Admin />}
+        {val === 'Admin' && <Assignment />}
+        {val === 'Forum' && <Forum />}
       
    </div> 
     </>
