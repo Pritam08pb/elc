@@ -4,7 +4,7 @@ const navigation = ({ onNavigationClick, activeComponent }) => {
   return (
     <div className={styles.nav}>
         <div className={styles.navprofile}>
-        <a className={styles.navphoto} href=""></a>
+        <a className={styles.navphoto} href=""><img src='' alt="" /></a>
         <div className={styles.navname}>Subham Nayak</div>
         <div className={styles.navregistration}>2001105210</div>
         </div>

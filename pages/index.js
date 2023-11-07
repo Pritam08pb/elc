@@ -12,7 +12,7 @@ import { useState } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  const [val,setVal]=useState('Admin')
+  const [val,setVal]=useState('Resource')
   const clickHandler = (componentName) => {
     setVal(componentName);
   };

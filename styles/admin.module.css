@@ -1,7 +1,8 @@
+.body{margin-bottom: 15px;}
 .full{
     height: 100h;
     width: 82vw;
-    background-color: rgb(57, 56, 64);
+    background-color: rgb(57, 56, 64); 
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -18,18 +19,60 @@
 .note{
     margin-top: 20px;
     height: 95%;
-    width: 46%;
+    width: 44%;
     background-color:rgb(41, 41, 46);
     border-radius: 9px;
     display: flex;
+    flex-direction: column;
     color: rgb(196, 202, 211);
     justify-content: center;
-
-}
-.check{
-    height: 46%;
-    width: 100%;
-    background-color: rgb(50, 49, 55);
-    display: flex;
     overflow: hidden;
+    align-items: center;
+}
+.semsub{display: flex;align-items: center;gap: 10px;
+    margin-top: 10px;}
+.upload
+{
+    transform: translateX(116px);
+    margin-top: 16px;
+    background-color: rgb(103, 61, 181);
+    width: 110px;
+    height: 30px;
+    border-radius: 10px;
+    color: white;
+    border: 0cap;
+    transition: background-color ease-out 0.2s;
+}
+.upload:hover{background-color: rgb(63, 43, 99); color: white;}
+.subinput{margin-left: 6px;width: 157px;}
+ .inputSem
+ {
+    width:45px;
+    margin-left: 10px
+ }
+ .inputInfo
+ {
+       width:280px;
+       height: 45px;
+       margin-left: 2px;
+       resize: none;
+ }
+.info{display: flex;
+    margin-top: 12px;
+    
+gap: 10px;}
+ .input
+ {
+    margin: 5px;
+    width:277px;
+    margin-left: 10px;
+ }
+ .inputTitle
+ {
+    width: 440px;
+ }
+
+.fileinput{
+    margin-left: 13px;
+    margin-top: 12px;
 }
