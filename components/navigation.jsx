@@ -65,7 +65,7 @@ const navigation = ({ onNavigationClick, activeComponent }) => {
 
         <div className={styles.navline}></div>
         <div className={styles.navspacer}></div>
-        <button className={styles.navlogout}>Log Out</button>
+        <button className={styles.navlogout}><span>Log Out</span> <img src="log-out.svg" alt="" /></button>
     </div>
   )
 }
