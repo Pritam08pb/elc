@@ -9,6 +9,7 @@ import Forum from '../components/forum'
 import Assignment from '../components/assignment'
 import { useState } from 'react'
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
