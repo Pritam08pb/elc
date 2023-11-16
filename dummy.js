@@ -1,12 +1,12 @@
-const students=[
+export const students=[
     {
         registrationNumber:"2001105210",
         email:"subhamnayak0206@gmail.com",
         name:"Subham Nayakk"
     },
     {
-        registrationNumber:"2001105224",
-        email:"pattanaiksujit72@gmail.com",
+        registrationNumber:"2001105189",
+        email:"pritamprasanjet8@gmail.com",
         name:"Sujit Pattanaik"
     },
     {

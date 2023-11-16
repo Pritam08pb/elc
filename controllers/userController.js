@@ -1,5 +1,6 @@
 import User from '../models/userModel';
 
+// delete after project completion
 export async function getAllUser(req, res) {
     try {
         const users = await User.find();
@@ -10,16 +11,20 @@ export async function getAllUser(req, res) {
         });
     } catch (error) {
         res.status(405).json({
-            status: 'failed',
+            status: 'fail',
         });
     }
 }
 
 export async function createUser(req, res) {
     try {
+        if (req.body.registrationNumber.length < 10)
+            return res.status(200).json({
+                status: 'fail',
+                message: 'Invalid Registration Number',
+            });
         const user = await User.create(req.body);
-         res.status(200).json({
-
+        res.status(200).json({
             status: 'success',
             user,
         });

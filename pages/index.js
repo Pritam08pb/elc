@@ -9,6 +9,8 @@ import Forum from '../components/forum'
 import Assignment from '../components/assignment'
 import { useState } from 'react'
 
+import Reg from '../components/register'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,7 +21,7 @@ export default function Home() {
   };
   return (
     <>
-    <div className={styles.parent}>
+    {/* <div className={styles.parent}>
        <Navigation onNavigationClick={clickHandler} activeComponent={val}/>
        
         {val === 'Home' && <Admin />}
@@ -27,7 +29,8 @@ export default function Home() {
         {val === 'Admin' && <Assignment />}
         {val === 'Forum' && <Forum />}
       
-   </div> 
+   </div>  */}
+   <Reg/>
     </>
   )
 }
