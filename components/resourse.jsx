@@ -1,7 +1,31 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'; 
 import styles from '../styles/resourse.module.css'
 
+
+
 const resourse = () => {
+  const [notes, setNotes] = useState([]);
+  // useEffect(() => {
+  //   // Fetch from server API
+  //   async function fetchNotes() {
+  //     try {
+  //       const response = await fetch('/api/get-notes'); 
+  //       if (response.ok) {
+  //         const data = await response.json();
+  //         setNotes(data.notes);
+  //       } else {
+  //         console.error('Failed to fetch notes');
+  //       }
+  //     } catch (error) {
+  //       console.error('Error:', error);
+  //     }
+  //   }
+
+  //   fetchNotes();
+  // }, []);
+
+
+
   return (
     <div>
     <div className={styles.nav}>
@@ -32,20 +56,12 @@ const resourse = () => {
             </div>
         <div className={styles.full}>
         <div className={styles.inner}>
-            <a className={styles.note} href=""><div className={styles.cover}></div><h3>Book Name</h3></a>
-            <a className={styles.note} href=""><div className={styles.cover}></div><h3>Book Name</h3></a>
-            <a className={styles.note} href=""><div className={styles.cover}></div><h3>Book Name</h3></a>
-            <a className={styles.note} href=""><div className={styles.cover}></div><h3>Book Name</h3></a>
-            <a className={styles.note} href=""><div className={styles.cover}></div><h3>Book Name</h3></a>
-            <a className={styles.note} href=""><div className={styles.cover}></div><h3>Book Name</h3></a>
-            <a className={styles.note} href=""><div className={styles.cover}></div><h3>Book Name</h3></a>
-            <a className={styles.note} href=""><div className={styles.cover}></div><h3>Book Name</h3></a>
-            <a className={styles.note} href=""><div className={styles.cover}></div><h3>Book Name</h3></a>
-            <a className={styles.note} href=""><div className={styles.cover}></div><h3>Book Name</h3></a>
-            <a className={styles.note} href=""><div className={styles.cover}></div><h3>Book Name</h3></a>
-            <a className={styles.note} href=""><div className={styles.cover}></div><h3>Book Name</h3></a>
-            <a className={styles.note} href=""><div className={styles.cover}></div><h3>Book Name</h3></a>
-            
+        {notes.map((note) => (
+          <a key={note.id} className={styles.note} href={note.pdfUrl}>
+            <div className={styles.cover}></div>
+            <h3>{note.title}</h3>
+          </a>
+        ))}
             
             
         </div>
