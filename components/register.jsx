@@ -4,7 +4,7 @@ import Otp from "./otp";
 import { useMutation } from "react-query";
 import { newUser, sendOtp, verifyOtp } from "../lib/helper";
 import Image from "next/image";
-import Styles from "../styles/login.module.css";
+import Styles from "../styles/register.module.css";
 import user from "../public/user.svg";
 import hide from "../public/hide.svg";
 import show from "../public/show.svg";
@@ -107,6 +107,7 @@ function Register() {
       password,
       passwordConfirm,
     };
+    console.log(formData)
     if (Object.keys(formData).length === 0)
       return console.log("Don't have form data");
     mutationUser.mutate(formData);
@@ -125,7 +126,11 @@ function Register() {
         <>
           <img id={Styles.im} src="./elclogo.png" alt="" />
           <form id={Styles.form}>
-            <h2>Register / Log in</h2> <br />
+          <div className={Styles.imgparent}>
+              <img className={Styles.img1} src="./login.png" alt="" />
+              <h2>Registration</h2>
+            </div>
+            <br /><br />
             <label id={Styles.label} htmlFor="rgd">
               Registration Number
             </label>
@@ -148,11 +153,9 @@ function Register() {
             <p className={Styles.forget} onClick={(event) => submit(event)}>
               Forgot Password ?
             </p>
-            <br />
-            <br />
-            <div className={Styles.imgparent}>
-              <img className={Styles.img1} src="./login.svg" alt="" />
-            </div>
+           
+           
+           
           </form>
         </>
       ) : (

@@ -1,4 +1,4 @@
-import connectDB from '../../databases/db'; // Import the database connection function
+import connectDB from '../../databases/app'; // Import the database connection function
 import Note from '../../models/note'; // Import the Note model
 
 connectDB(); // Call the database connection function to establish the connection

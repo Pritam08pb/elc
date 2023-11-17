@@ -1,7 +1,7 @@
 export const students=[
     {
         registrationNumber:"2001105210",
-        email:"subhamnayak0206@gmail.com",
+        email:"pritamprasanjet8@gmail.com",
         name:"Subham Nayakk"
     },
     {
