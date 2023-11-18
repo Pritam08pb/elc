@@ -8,6 +8,7 @@ import Styles from "../styles/register.module.css";
 import user from "../public/user.svg";
 import hide from "../public/hide.svg";
 import show from "../public/show.svg";
+import Loader from "./Loader";
 
 function Register() {
   const [registrationNumber, setRegistrationNumber] = useState();
@@ -122,6 +123,9 @@ function Register() {
   return (
     <div className={Styles.body}>
       {/* Registration number input */}
+      {mutationOtp.isLoading || mutationOtpVerify.isLoading || mutationUser.isLoading ? (
+        <Loader />
+      ) : null}
       {steps == 1 ? (
         <>
           <img id={Styles.im} src="./elclogo.png" alt="" />

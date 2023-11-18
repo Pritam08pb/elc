@@ -21,7 +21,7 @@ const navigation = ({ onNavigationClick, activeComponent }) => {
       >
         Home
       </a>
-
+ 
         <div className={styles.navline}></div>
         <a
         href="#"
@@ -65,7 +65,7 @@ const navigation = ({ onNavigationClick, activeComponent }) => {
 
         <div className={styles.navline}></div>
         <div className={styles.navspacer}></div>
-        <button className={styles.navlogout}><span>Log Out</span> <img src="log-out.svg" alt="" /></button>
+        <button className={styles.navlogout}><span>Log Out</span> <img src="/logout.svg" alt="" /></button>
     </div>
   )
 }

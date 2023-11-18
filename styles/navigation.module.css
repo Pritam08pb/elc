@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
+} 
 
 .navprofile {
     height: 35%;
@@ -39,9 +39,9 @@
 .navsub {
     background-color: #202123;
     text-align: center; 
-    font-size: 140%;
-    padding-top: 11px;
-    padding-bottom: 11px;
+    font-size: 150%;
+    padding-top: 14px;
+    padding-bottom: 14px;
     text-decoration: none;
     color: white;
     
