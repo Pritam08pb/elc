@@ -8,7 +8,7 @@ import Styles from "../styles/register.module.css";
 import user from "../public/user.svg";
 import hide from "../public/hide.svg";
 import show from "../public/show.svg";
-import Loader from "./Loader";
+import Loader from "./loader";
 
 function Register() {
   const [registrationNumber, setRegistrationNumber] = useState();
