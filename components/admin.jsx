@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/admin.module.css";
+import Loader from "./loader";
 
 const Admin = () => {
   const semesters = [
@@ -31,9 +32,10 @@ const Admin = () => {
     setSelectedSemester(selectedSemester);
     setSelectedSubject(subjects[selectedSemester][0]);
   };
-
+  const [isLoading, setIsLoading] = useState(false);
   const handleUpload = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     const data = {
       title,
       sem,
@@ -62,16 +64,20 @@ const Admin = () => {
     } catch (error) {
       console.error("Error:", error);
     }
+    finally {
+      setIsLoading(false); 
+    }
   };
 
   return (
     <div className={styles.full}>
+       {isLoading && <Loader />} 
       <div className={styles.half}>
         <div className={styles.note}>
           <h2 className={styles.formTitle}>Upload Resource</h2>
           <form className={styles.body} onSubmit={handleUpload}>
             <div className={styles.formGroup}>
-              <label htmlFor="title">Title:</label>
+              <label className={styles.lbl} htmlFor="title">Title:</label>
               <input
                 type="text"
                 id="title"
@@ -81,7 +87,7 @@ const Admin = () => {
               />
             </div>
 
-            <label htmlFor="info">Info:</label>
+            <label className={styles.lbl} htmlFor="info">Info:</label>
             <textarea
               id="info"
               className={styles.inputInfo}
@@ -130,7 +136,7 @@ const Admin = () => {
             </div>
 
             <div>
-              <label htmlFor="pdf">File:</label>
+              <label className={styles.lbl} htmlFor="pdf">File:</label>
               <input
                 type="file"
                 id="pdf"
