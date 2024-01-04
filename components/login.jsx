@@ -12,7 +12,6 @@ import Link from "next/link";
 import { Carousel } from "react-responsive-carousel"; // Import the carousel component
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import the carousel styles
 
-// ... (imports and other code)
 
 const Login = () => {
   const router = useRouter();
@@ -21,6 +20,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [togglePassword, setTogglePassword] = useState(0);
+  const [email, setemail] = useState('');
 
   const toggleChange = () => {
     setIsChecked(!isChecked);
@@ -107,12 +107,20 @@ const Login = () => {
   async function adminSubmit(event) {
     event.preventDefault();
     // Add admin login logic here
+    if (!password) {
+      // Display a toast for blank password
+      toast.warn("Password cannot be blank.", {
+        position: "top-right",
+        theme: "light",
+      });
+      return;
+    }
     try {
       // Example admin login logic
       setLoading(true); // Set loading to true
 
       const payload = {
-        email: registrationNumber, // Assuming email is used for admin login
+        email, // Assuming email is used for admin login
         password,
       };
       const options = {
@@ -121,7 +129,7 @@ const Login = () => {
         body: JSON.stringify(payload),
       };
 
-      const response = await fetch("/api/admin/login", options);
+      const response = await fetch("/api/adminLogin", options);
       const json = await response.json();
 
       if (response.status === 401) {
@@ -145,7 +153,7 @@ const Login = () => {
       localStorage.setItem("token", token);
 
       // Redirect or perform any action upon successful admin login
-      router.push("/admin-dashboard");
+      router.push("/main");
     } catch (error) {
       console.error("Error:", error);
 
@@ -167,10 +175,7 @@ const Login = () => {
 
   return (
     <>
-    
-
-
-
+  
 
       <div className={Styles.body}>
         <div className={Styles.dark}></div>
@@ -215,8 +220,8 @@ const Login = () => {
                 id={Styles.input1}
                 type="email"
                 required={true}
-                value={registrationNumber}
-                onChange={(event) => setRegistrationNumber(event.target.value)}
+                value={email}
+                onChange={(event) => setemail(event.target.value)}
               />
             </>
           ) : (
@@ -284,7 +289,7 @@ const Login = () => {
                 Login
               </button>
             )}
-            <Link href="/" className={Styles.signupbutton}>
+            <Link href="/register" className={Styles.signupbutton}>
               Sign up
             </Link>
           </div>

@@ -33,11 +33,8 @@ export default function Main() {
         router.push('/')
       } else {
         // Token is still valid, proceed with using it
-
         // Access user information from the decoded token
         setDecodedToken(decodedToken);
-
-
         // Use the decoded user information as needed
       }
     } else {
@@ -50,9 +47,10 @@ export default function Main() {
     <>
       <div className={styles.parent}>
         <Navigation onNavigationClick={clickHandler} activeComponent={val} decodedToken={decodedToken} />
+        {val === 'Admin' && <Admin />}
         {val === 'Home' && <Admin />}
         {val === 'Resource' && <Resource />}
-        {val === 'Admin' && <Assignment />}
+        {val === 'Assn' && <Assignment />}
         {val === 'Forum' && <Forum />}
       </div>
     </>

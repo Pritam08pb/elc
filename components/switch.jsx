@@ -16,7 +16,7 @@ const Switch = ({ isChecked, onChange }) => {
         onChange={onChange}
       />
       <label htmlFor="switch" className={styles.label}>
-        <span className={styles['switch-x-text']}>Login for </span>
+        <span className={styles['switch-x-text']}>For </span>
         <span className={styles['switch-x-toggletext']}>
           <span className={styles['switch-x-unchecked']}>
             <span className={styles['switch-x-hiddenlabel']}>Unchecked: </span>Student

@@ -23,7 +23,7 @@
     backdrop-filter: blur(10px);
     box-shadow: 0 0 40px rgba(34, 34, 35, 0.6);
     padding: 50px 35px;
-    z-index: 2;
+    z-index: 3;
 }
 #form *{
     font-family: 'Poppins',sans-serif;
@@ -89,8 +89,8 @@
     background-color: rgba(255, 255, 255, 0.138);
     border-radius: 3px;
     padding: 0 10px;
-    margin-top: 8px;
-    margin-bottom: 9px;
+    margin-top: 12px;
+    margin-bottom: 12px;
     font-size: 17px;
     font-weight: 300;
 }
@@ -101,9 +101,10 @@
     background-color: rgba(255, 255, 255, 0);
     font-size: 17px;
     font-weight: 300;
+    margin-bottom: 12px;
 }
 .btns{
-    margin-top: 32px;
+    margin-top: 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -122,7 +123,7 @@
     border-radius: 3px;
     padding: 0 10px;
     margin-top: 8px;
-    margin-bottom: 9px;
+    margin-bottom: 15px;
    align-items: center;
    justify-content: center;
     
@@ -144,7 +145,7 @@
     z-index: 2;
 }
 .img1{
-    width: 15%;
+    width: 16%;
 }
 .imgparent{
     width: 100%;
@@ -154,7 +155,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 26px;
+    margin-top: 10px;
 }
 .forgot{
     

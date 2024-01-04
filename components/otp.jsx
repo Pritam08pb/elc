@@ -45,7 +45,7 @@ function Otp(props) {
     }
 
     return (
-        <>
+        <><div className={Styles.par}>
         <div className={Styles.parent}>
             <div className={Styles.logotext}>
             <img src="./otp.png" alt="" />
@@ -61,7 +61,7 @@ function Otp(props) {
             <button className={Styles.btn} onClick={(event) => submitHandler(event)}>
                 Submit
             </button>
-            </div>
+            </div></div>
         </>
     );
 }
