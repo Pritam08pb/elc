@@ -1,18 +1,18 @@
 .nav {
     height: 100vh;
     width: 18vw;
-    background-color:#202123;
+    background-color: #202123;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-} 
+}
 
 .navprofile {
     height: 35%;
     background-color: #202123;
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     color: white;
 }
@@ -27,9 +27,13 @@
 .navname {
     padding-top: 5%;
     font-size: x-large;
+    margin-bottom: 9px;
 }
 
-
+.navregistration {
+    font-size: 18px;
+    font-weight: 100;
+}
 
 .navline {
     background-color: #393840;
@@ -38,42 +42,45 @@
 
 .navsub {
     background-color: #202123;
-    text-align: center; 
+    text-align: center;
     font-size: 150%;
     padding-top: 14px;
     padding-bottom: 14px;
     text-decoration: none;
     color: white;
-    
+
 }
 
 .notesButtonActive {
-    background-color:#393840; /* Change this to your desired active color */
-    color: white; /* Change this to your desired active text color */
-  }
+    background-color: #393840;
+    /* Change this to your desired active color */
+    color: white;
+    /* Change this to your desired active text color */
+}
+
 .navsub:hover {
     background-color: #3b3465;
-    
-    
+
+
 }
 
 .navlogout {
-    background-color:  #26292B; 
-    color: #fff; 
+    background-color: #26292B;
+    color: #fff;
     padding: 20px 20px;
-    font-size:large;
-    border: none; 
-    cursor: pointer; 
+    font-size: large;
+    border: none;
+    cursor: pointer;
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: center;
     gap: 15px;
-  }
-  
-  .navlogout:hover {
-    background-color: rgb(77, 73, 108); 
-  }
-  
+}
+
+.navlogout:hover {
+    background-color: rgb(77, 73, 108);
+}
+
 .navspacer {
     flex-grow: 1;
-  }
+}

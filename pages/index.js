@@ -5,8 +5,12 @@ import Navigation from '../components/navigation'
 import Admin from'../components/admin'
 import Forum from '../components/forum'
 import Assignment from '../components/assignment'
-import { useState } from 'react'
 import Reg from '../components/register'
+import Login from '../components/login'
+import { useState } from 'react'
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -27,7 +31,8 @@ export default function Home() {
         {val === 'Forum' && <Forum />}
       
    </div>  */}
-   <Reg/>
+   <ToastContainer />
+   <Login/>
     </>
   )
 }

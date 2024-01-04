@@ -1,12 +1,50 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../styles/navigation.module.css'
-const navigation = ({ onNavigationClick, activeComponent }) => {
+import { useRouter } from 'next/router';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Loader from '../components/loader';
+
+
+const navigation = ({ onNavigationClick, activeComponent, decodedToken }) => {
+  const { userId, username, email, registrationNumber } = decodedToken || {};
+
+  const [logoutRender, setlogoutRender] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+  useEffect(() => {
+    if (logoutRender) {
+      setLoading(true);
+      localStorage.removeItem('token');
+      
+      setTimeout(() => {
+        router.push('/');
+        setLoading(false);
+        toast.success("Successfully logged out.", {
+          position: "top-right",
+          autoClose: 800,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }, 1800);
+      
+    }
+  }, [logoutRender]);
+
+  const logout = () => {
+    setlogoutRender(true);
+  };
+
   return (
     <div className={styles.nav}>
         <div className={styles.navprofile}>
         <a className={styles.navphoto} href=""><img src='' alt="" /></a>
-        <div className={styles.navname}>Subham Nayak</div>
-        <div className={styles.navregistration}>2001105210</div>
+        <div className={styles.navname}>{username}</div>
+        <div className={styles.navregistration}>{registrationNumber}</div>
         </div>
         <div className={styles.navline}></div>
         
@@ -65,7 +103,7 @@ const navigation = ({ onNavigationClick, activeComponent }) => {
 
         <div className={styles.navline}></div>
         <div className={styles.navspacer}></div>
-        <button className={styles.navlogout}><span>Log Out</span> <img src="/logout.svg" alt="" /></button>
+        <button className={styles.navlogout} onClick={logout}><span> {loading && <Loader/>}Log Out</span> <img src="/logout.svg" alt="" /></button>
     </div>
   )
 }

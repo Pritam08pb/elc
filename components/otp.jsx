@@ -49,7 +49,7 @@ function Otp(props) {
         <div className={Styles.parent}>
             <div className={Styles.logotext}>
             <img src="./otp.png" alt="" />
-            <p>verify OTP here </p></div>
+            {props.errMessage ?( <p className={Styles.error}>{props.errMessage}</p>):(<p>verify OTP here </p>)}</div>
             <div className={Styles.container}>
                 <input type="text" required="" maxLength={1} onChange={numberHandler1} />
                 <input type="text" required="" maxLength={1} onChange={numberHandler2} />

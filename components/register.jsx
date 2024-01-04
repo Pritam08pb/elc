@@ -9,8 +9,11 @@ import user from "../public/user.svg";
 import hide from "../public/hide.svg";
 import show from "../public/show.svg";
 import Loader from "./loader";
+import { useRouter } from 'next/router';
 
 function Register() {
+  const router = useRouter();
+  
   const [registrationNumber, setRegistrationNumber] = useState();
   const [errMessage, setErrorMessage] = useState();
   const [idx, setIdx] = useState(-1);
@@ -20,8 +23,14 @@ function Register() {
   const [password, setPassword] = useState();
   const [passwordConfirm, setPasswordConfirm] = useState();
 
+  const setError = (message) => {
+    setErrorMessage(message);
+    setTimeout(() => setErrorMessage(null), 5000); // Clear error message after 5 seconds
+  };
+
   // to submit registration number and send otp
   function submit(event) {
+    event.preventDefault();
     const length = students.length;
     var index = -1;
 
@@ -35,7 +44,7 @@ function Register() {
     }
 
     //if invalid
-    if (index == -1) console.log("Invalid registration number");
+    if (index == -1) setError("Invalid registration number");
     else otpSend(event, index);
   }
  
@@ -62,6 +71,7 @@ function Register() {
     mutationFn: newUser,
     onSuccess: () => {
       console.log("Data sent for new user");
+      // router.push('/main');
     },
   });
 
@@ -72,9 +82,10 @@ function Register() {
       registrationNumber: registrationNumber,
     };
     if (Object.keys(formData).length === 0)
-      return console.log("Don't have form Data");
+     setError("Don't have Data");
     mutationOtp.mutate(formData);
   }
+
 
   useEffect(() => {
     if (mutationOtp.data) {
@@ -96,6 +107,9 @@ function Register() {
   useEffect(() => {
     if (mutationOtpVerify.data) {
       if (mutationOtpVerify.data.status == "success") setSteps(3);
+      else {
+        setError("OTP verification failed.");
+      }
     }
   });
 
@@ -110,13 +124,31 @@ function Register() {
     };
     console.log(formData)
     if (Object.keys(formData).length === 0)
-      return console.log("Don't have form data");
+    setError("Don't have data");
     mutationUser.mutate(formData);
   }
+
+
+  // function allSubmit(event) {
+  //   event.preventDefault();
+  //   const formData = {
+  //     registrationNumber,
+  //     email: students[idx].email,
+  //     name: students[idx].name,
+  //     password,
+  //     passwordConfirm,
+  //   };
+  //   console.log(formData)
+  //   if (Object.keys(formData).length === 0)
+  //   setError("Don't have data");
+  //   mutationUser.mutate(formData);
+  // }
+
 
   useEffect(() => {
     if (mutationUser.data) {
       if (mutationUser.data.status == "success") setSteps(4);
+      else setError("can't register");
     }
   }, [mutationUser]);
 
@@ -153,10 +185,12 @@ function Register() {
                 Register
               </button>
               <button className={Styles.button}>Log In</button>
+              
             </div>
             <p className={Styles.forget} onClick={(event) => submit(event)}>
               Forgot Password ?
             </p>
+            {errMessage && <p className={Styles.error}>{errMessage}</p>}
            
            
            
@@ -165,7 +199,7 @@ function Register() {
       ) : (
         <></>
       )}
-      {steps == 2 ? <Otp otpHandler={otpHandler} /> : <></>}
+      {steps == 2 ? <Otp otpHandler={otpHandler} errMessage={errMessage} /> : <></>}
       {steps == 3 ? (
         <>
         <div className={Styles.parent}>
@@ -223,6 +257,7 @@ function Register() {
             )}
           </div>
           </div>
+          {errMessage ?( <p className={Styles.error2}>{errMessage}</p>):(<div className={Styles.blank}></div> )}
           <div className={Styles.btns}>
             <button
               className={Styles.btn}
