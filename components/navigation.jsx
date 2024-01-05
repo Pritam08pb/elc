@@ -11,6 +11,13 @@ const navigation = ({ onNavigationClick, activeComponent, decodedToken }) => {
 
   const [logoutRender, setlogoutRender] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [admin, setAdmin] = useState(false);
+
+  useEffect(() => {
+    if (registrationNumber === '0000000000') {
+      setAdmin(true);
+    }
+  }, []); 
   const router = useRouter();
   useEffect(() => {
     if (logoutRender) {
@@ -44,7 +51,7 @@ const navigation = ({ onNavigationClick, activeComponent, decodedToken }) => {
         <div className={styles.navprofile}>
         <a className={styles.navphoto} href=""><img src='' alt="" /></a>
         <div className={styles.navname}>{username}</div>
-        <div className={styles.navregistration}>{registrationNumber}</div>
+        <div className={styles.navregistration}>{admin ? "Admin" : registrationNumber}</div>
         </div>
         <div className={styles.navline}></div>
         
@@ -88,17 +95,32 @@ const navigation = ({ onNavigationClick, activeComponent, decodedToken }) => {
       </a>
         
         <div className={styles.navline}></div>
-        <a
-        href="#"
-        className={
-          activeComponent === 'Admin'
-            ? `${styles.navsub} ${styles.notesButtonActive}`
-            : styles.navsub
-        }
-        onClick={() => onNavigationClick('Admin')}
-      >
-        Assignment
-      </a>
+        {admin?(
+          <a
+          href="#"
+          className={
+            activeComponent === 'Admin'
+              ? `${styles.navsub} ${styles.notesButtonActive}`
+              : styles.navsub
+          }
+          onClick={() => onNavigationClick('Admin')}
+        >
+          Admin
+        </a>
+        ):(
+          <a
+          href="#"
+          className={
+            activeComponent === 'Admin'
+              ? `${styles.navsub} ${styles.notesButtonActive}`
+              : styles.navsub
+          }
+          onClick={() => onNavigationClick('Assn')}
+        >
+          Assignment
+        </a>
+        )}
+        
 
 
         <div className={styles.navline}></div>

@@ -15,3 +15,21 @@ export const students=[
         name:"Chinamaya samal"
     }
 ]
+
+export const faculties=[
+    {
+        registrationNumber:"0000000000",
+        email:"pritampbehera8@gmail.com",
+        name:"Mr. Ramesh Sahoo"
+    },
+    {
+        registrationNumber:"0000000000",
+        email:"pritamprasanjet8@gmail.com",
+        name:"Dr. Dilip Kumar Swain"
+    },
+    {
+        registrationNumber:"0000000000",
+        email:"subhamnayak0206@gmail.com",
+        name:"Chinamaya samal"
+    }
+]

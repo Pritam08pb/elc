@@ -5,10 +5,8 @@ import Navigation from '../components/navigation'
 import Admin from'../components/admin'
 import Forum from '../components/forum'
 import Assignment from '../components/assignment'
-import Reg from '../components/register'
 import Login from '../components/login'
 import { useState } from 'react'
-
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
