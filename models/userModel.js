@@ -1,19 +1,19 @@
 import mongoose from 'mongoose';
-import bcrypt from 'bcryptjs'
+import bcrypt from 'bcryptjs';
 
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, `Name is a required field`],
+        required: [true, 'Name is a required field'],
     },
     registrationNumber: {
         type: String,
-        required: [true, `This is a required field`],
+        required: [true, 'This is a required field'],
         unique: true,
     },
     email: {
         type: String,
-        required: [true, `Email is a required field`],
+        required: [true, 'Email is a required field'],
         unique: true,
         lowercase: true,
         validate: {
@@ -34,19 +34,22 @@ const userSchema = new mongoose.Schema({
     },
     passwordConfirm: {
         type: String,
-        required: [true, 'please confirm your password'],
+        required: [true, 'Please confirm your password'],
         validate: {
             validator: function (el) {
                 return el === this.password;
             },
-            message: `Passwords are not the same`,
+            message: 'Passwords are not the same',
         },
+    },
+    profileUrl: {
+        type: String, // Assuming it's a URL string
     },
 });
 
 userSchema.pre('save', async function (next) {
     // if (!this.isModified('password')) return next();
-    //Hash the password with the cost of 12
+    // Hash the password with the cost of 12
     this.password = await bcrypt.hash(this.password, 12);
     this.passwordConfirm = undefined;
     next();

@@ -54,5 +54,5 @@ export default function Main() {
         {val === 'Forum' && <Forum />}
       </div>
     </>
-  )
+  )   
 }

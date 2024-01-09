@@ -30,7 +30,7 @@ export default async function handler(req, res) {
     }
 
     // Generate JWT token
-    const token = jwt.sign({ userId: admin._id ,username:admin.name,email:admin.email,registrationNumber:admin.registrationNumber }, 'jwtkey', {
+    const token = jwt.sign({ userId: admin._id ,username:admin.name,email:admin.email,registrationNumber:admin.registrationNumber,profileUrl:admin.profileUrl  }, 'jwtkey', {
       expiresIn: '12h', // Token expiration time
     });
 
