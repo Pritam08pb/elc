@@ -19,7 +19,7 @@
     gap: 12px;
     transition: opacity 0.3s ease-in-out;
 
-  
+
 }
 
 .navphotoInput {
@@ -50,15 +50,16 @@
     justify-content: center;
     color: white;
 }
-.insideImg{
-   
+
+.insideImg {
+
     max-width: 120%;
     max-height: 120%;
-    width: auto; /* Ensure aspect ratio is maintained */
-    height: auto; /* Ensure aspect ratio is maintained */
+    /* Ensure aspect ratio is maintained */
     object-fit: cover;
-    
+
 }
+
 .navphoto {
     height: 100px;
     width: 100px;
@@ -69,6 +70,7 @@
     justify-content: center;
     border: none;
     overflow: hidden;
+
 }
 
 .navphoto:hover {
@@ -115,7 +117,7 @@
 
 }
 
-.navlogout {
+.btn {
     background-color: #26292B;
     color: #fff;
     padding: 20px 20px;
@@ -126,11 +128,43 @@
     align-items: center;
     justify-content: center;
     gap: 15px;
+    position: relative;
+    border: 0.1px solid #3f4143;
+    overflow: hidden;
+    transition: all 0.3s;
+    font-weight: bolder;
+    
 }
 
-.navlogout:hover {
+.btn:hover {
     background-color: rgb(77, 73, 108);
 }
+
+.btn:before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 120%;
+    background-color: #a600ff;
+    top: 50%;
+    transform: skewX(30deg) translate(-250%, -50%);
+    transition: all 0.4s;
+   }
+   
+   .btn:hover {
+    background-color: rgb(77, 73, 108);
+    color: #fff;
+    
+   }
+   
+   .btn:hover::before {
+    transform: skewX(30deg) translate(250%, -50%);
+    transition-delay: 0.04s;
+   }
+   
+   .btn:active {
+    transform: scale(0.9);
+   }
 
 .navspacer {
     flex-grow: 1;

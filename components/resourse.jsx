@@ -56,12 +56,66 @@ const resourse = () => {
             </div>
         <div className={styles.full}>
         <div className={styles.inner}>
-        {notes.map((note) => (
+        {/* {notes.map((note) => (
           <a key={note.id} className={styles.note} href={note.pdfUrl}>
             <div className={styles.cover}></div>
             <h3>{note.title}</h3>
           </a>
-        ))}
+        ))} */}
+        <a  className={styles.note} >
+            <div className={styles.cover}></div>
+            <h3>fb</h3>
+          </a>
+          <a  className={styles.note} >
+            <div className={styles.cover}></div>
+            <h3>fb</h3>
+          </a>
+          <a  className={styles.note} >
+            <div className={styles.cover}></div>
+            <h3>fb</h3>
+          </a>
+
+          <a  className={styles.note} >
+            <div className={styles.cover}></div>
+            <h3>fb</h3>
+          </a>
+          <a  className={styles.note} >
+            <div className={styles.cover}></div>
+            <h3>fb</h3>
+          </a><a  className={styles.note} >
+            <div className={styles.cover}></div>
+            <h3>fb</h3>
+          </a>
+          <a  className={styles.note} >
+            <div className={styles.cover}></div>
+            <h3>fb</h3>
+          </a>
+          <a  className={styles.note} >
+            <div className={styles.cover}></div>
+            <h3>fb</h3>
+          </a>
+          <a  className={styles.note} >
+            <div className={styles.cover}></div>
+            <h3>fb</h3>
+          </a>
+          <a  className={styles.note} >
+            <div className={styles.cover}></div>
+            <h3>fb</h3>
+          </a>
+          <a  className={styles.note} >
+            <div className={styles.cover}></div>
+            <h3>fb</h3>
+          </a>
+          <a  className={styles.note} >
+            <div className={styles.cover}></div>
+            <h3>fb</h3>
+          </a><a  className={styles.note} >
+            <div className={styles.cover}></div>
+            <h3>fb</h3>
+          </a><a  className={styles.note} >
+            <div className={styles.cover}></div>
+            <h3>fb</h3>
+          </a>
             
             
         </div>

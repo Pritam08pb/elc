@@ -60,6 +60,7 @@ const navigation = ({ onNavigationClick, activeComponent, decodedToken }) => {
       console.error("No file selected.");
       return;
     }
+    setLoading(true);
 
     const formData = new FormData();
     formData.append("file", selectedFile);
@@ -79,7 +80,7 @@ const navigation = ({ onNavigationClick, activeComponent, decodedToken }) => {
         console.log("Image uploaded successfully:", data.imageUrl);
         localStorage.setItem("profileImage", data.secure_url);
         setcard(false);
-        
+
         let apiRoute = "/api/updateUserProfile";
         if (admin) {
           apiRoute = "/api/updateAdminProfile";
@@ -102,6 +103,7 @@ const navigation = ({ onNavigationClick, activeComponent, decodedToken }) => {
           console.error("Failed to update user profileUrl.");
         }
         //......................
+        setLoading(false);
         setProfileImage(data.secure_url);
       } else {
         console.error("Failed to upload image.");
@@ -164,7 +166,7 @@ const navigation = ({ onNavigationClick, activeComponent, decodedToken }) => {
         }
         onClick={() => onNavigationClick("Home")}
       >
-        Home
+        Profile
       </a>
 
       <div className={styles.navline}></div>
@@ -222,7 +224,7 @@ const navigation = ({ onNavigationClick, activeComponent, decodedToken }) => {
 
       <div className={styles.navline}></div>
       <div className={styles.navspacer}></div>
-      <button className={styles.navlogout} onClick={logout}>
+      <button className={styles.btn} onClick={logout}>
         <span> {loading && <Loader />}Log Out</span>{" "}
         <img src="/logout.svg" alt="" />
       </button>
