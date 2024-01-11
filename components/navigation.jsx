@@ -115,6 +115,7 @@ const navigation = ({ onNavigationClick, activeComponent, decodedToken }) => {
 
   return (
     <div className={styles.nav}>
+      {loading && <Loader />}
       <div className={styles.navprofile}>
         <button
           onClick={() => {
@@ -225,7 +226,7 @@ const navigation = ({ onNavigationClick, activeComponent, decodedToken }) => {
       <div className={styles.navline}></div>
       <div className={styles.navspacer}></div>
       <button className={styles.btn} onClick={logout}>
-        <span> {loading && <Loader />}Log Out</span>{" "}
+        <span>Log Out</span>
         <img src="/logout.svg" alt="" />
       </button>
     </div>

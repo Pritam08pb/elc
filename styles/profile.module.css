@@ -6,6 +6,24 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    flex-direction: column;
+  }
+  .warn{
+    height: 55px;
+    width: 20%;
+    border-radius:8px ;
+    background-color:#6C4C9A;
+    margin-bottom: -35px;
+    margin-top: 30px;
+    font-size: medium;
+    font-weight: 500;
+    color: azure;
+    border: none;
+    transition: all ease-in 0.3s;
+  }
+  .warn:hover{
+    background-color:#1D1D1F;
+    color: #ffffff;
   }
   
   .inside {

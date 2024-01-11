@@ -7,6 +7,11 @@ const profile = ({ decodedToken }) => {
  const [admin, setAdmin] = useState(false);
  const [profileImage, setProfileImage] = useState("");
 
+
+ const handleclick = () => {
+  
+};
+
     useEffect(() => {
       if (registrationNumber === "0000000000") {
         setAdmin(true);
@@ -22,7 +27,8 @@ const profile = ({ decodedToken }) => {
   return (
     <>
       <div className={styles.full}>
-        <div className={styles.inside}>
+        
+        <div className={styles.inside} >
         <div className={styles.object}></div>
         <div className={styles.profileimage}>
           <img className={styles.img} src={profileImage} alt="" />
@@ -37,9 +43,8 @@ const profile = ({ decodedToken }) => {
             <hr color="#6C4C9A" />
             <h2>{email}</h2></div>
           </div>
-          
         </div>
-        <div></div>
+        <button className={styles.warn} onClick={handleclick}>Change Password</button>
       </div>
     </>
   );
