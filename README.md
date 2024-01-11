@@ -40,6 +40,8 @@ Open http://localhost:3000 with your browser to see the result.
 - User Authentication
 - User Profile
 
+## Logo
+<img src="https://github.com/Pritam08pb/elc/assets/99427618/ceccfb41-fd92-4511-aec8-ced8ced0ff0e" alt="ELC Logo" width="200" height="100">
 
 
 
