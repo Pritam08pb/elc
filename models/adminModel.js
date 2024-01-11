@@ -42,6 +42,9 @@ const userSchema = new mongoose.Schema({
             message: `Passwords are not the same`,
         },
     },
+    profileUrl: {
+        type: String, // Assuming it's a URL string
+    },
 });
 
 userSchema.pre('save', async function (next) {

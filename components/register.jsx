@@ -165,6 +165,7 @@ function Register() {
       name: students[idx].name,
       password,
       passwordConfirm,
+      profileUrl:'',
     };
     console.log(formData);
     if (Object.keys(formData).length === 0) setError("Don't have data");
@@ -180,6 +181,7 @@ function Register() {
       name: faculties[idx].name,
       password,
       passwordConfirm,
+      profileUrl:'',
     };
     console.log(formData);
     if (Object.keys(formData).length === 0) setError("Don't have data");

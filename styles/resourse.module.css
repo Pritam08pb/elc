@@ -94,6 +94,27 @@
 
 
 
+.inner {
+  --sb-track-color: #201f23;;
+  --sb-thumb-color: #733fbf;
+  --sb-size: 30px;
 
+  scrollbar-color: var(--sb-thumb-color) 
+                   var(--sb-track-color);
+}
 
+.inner::-webkit-scrollbar {
+  width: var(--sb-size) 
+}
+
+.inner::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 8px;
+}
+
+.inner::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 8px;
+  border: 6px solid #201f23;
+  }
 
