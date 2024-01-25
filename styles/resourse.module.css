@@ -96,7 +96,7 @@
 
 .inner {
   --sb-track-color: #201f23;;
-  --sb-thumb-color: #733fbf;
+  --sb-thumb-color: #635970;
   --sb-size: 30px;
 
   scrollbar-color: var(--sb-thumb-color) 
