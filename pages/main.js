@@ -65,7 +65,7 @@ export default function Main() {
           activeComponent={val}
           decodedToken={decodedToken}
         />
-        {val === "Admin" && <Admin />}
+        {val === "Admin" && <Admin decodedToken={decodedToken} />}
         {val === "Home" && <Profile decodedToken={decodedToken} />}
         {val === "Resource" && <Resource />}
         {val === "Assn" && <Assignment />}

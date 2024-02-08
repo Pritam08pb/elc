@@ -1,26 +1,87 @@
-.body{margin-bottom: 15px;}
-.full{
-    height: 100h;
+.body {
+    margin-bottom: 15px;
+}
+
+.full {
+    height: 100vh;
     width: 82vw;
-    background-color: rgb(57, 56, 64); 
+    background-color: rgb(57, 56, 64);
     display: flex;
     flex-direction: column;
     overflow: hidden;
     gap: 4vh;
+    align-items: center;
 }
-.half{
-    height: 48%;
+
+.half {
+    height: 46%;
     width: 100%;
-    background-color:rgb(57, 56, 64);
-    display:flex;
+    background-color: rgb(57, 56, 64);
+    display: flex;
     justify-content: space-around;
 
 }
-.note{
+
+.low {
+    height: 44%;
+    width: 96%;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 14px;
+    overflow-y: scroll;
+    background-color: #29292E;
+
+}
+
+
+.delitem {
+    display: flex;
+    gap: 12px;
+    width: 95%;
+    align-items: center;
+    justify-content: center;
+    background-color: #393840;
+    margin-top: 10px;
+    padding: 3px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 6px;
+}
+
+.delitem2 {
+    display: none;
+    gap: 12px;
+    width: 53%;
+    align-items: center;
+    justify-content: center;
+    background-color: #29292e82;
+    padding: 0px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 6px;
+    margin-left: 38px;
+}
+
+.box {
+    background-color: blueviolet;
+    padding: 3px;
+    height: 22px;
+    width: 110px;
+    overflow: hidden;
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+.note {
     margin-top: 20px;
     height: 95%;
     width: 44%;
-    background-color:rgb(41, 41, 46);
+    background-color: rgb(41, 41, 46);
     border-radius: 9px;
     display: flex;
     flex-direction: column;
@@ -29,10 +90,15 @@
     overflow: hidden;
     align-items: center;
 }
-.semsub{display: flex;align-items: center;gap: 15px;
-    margin-top: 10px;}
-.upload
-{
+
+.semsub {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.upload {
     transform: translateX(116px);
     margin-top: 16px;
     background-color: rgb(103, 61, 181);
@@ -43,54 +109,85 @@
     border: 0cap;
     transition: background-color ease-out 0.2s;
 }
-.upload:hover{background-color: rgb(63, 43, 99); color: white;}
-.subinput{
+
+.upload:hover {
+    background-color: rgb(63, 43, 99);
+    color: white;
+}
+
+.subinput {
     margin-left: 10px;
     height: 30px;
     font-size: 15px;
     font-weight: 500;
     width: 133px;
 }
- .inputSem
- {
-    width:133px;
+
+.inputSem {
+    width: 133px;
     height: 30px;
     font-size: 15px;
     font-weight: 500;
     margin-left: 50px
-    
- }
- 
- .inputInfo
- {
-       width:284px;
-       height: 47px;
-       margin-left: 14px;
-       resize: none;
-       margin-top: 10px;
-       font-size: 16px;
- }
-.info{display: flex;
-    
-gap: 10px;}
- .input
- {
+}
+
+.inputInfo {
+    width: 284px;
+    height: 47px;
+    margin-left: 14px;
+    resize: none;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.info {
+    display: flex;
+
+    gap: 10px;
+}
+
+.input {
     margin: 5px;
-    width:282px;
+    width: 282px;
     margin-left: 10px;
     height: 26px;
     font-size: 16px;
- }
- .inputTitle
- {
-    width: 440px;
- }
+}
 
-.fileinput{
+.inputTitle {
+    width: 440px;
+}
+
+.fileinput {
     height: 30px;
     margin-left: 16px;
-    margin-top: 14px
-    ;
+    margin-top: 14px;
 }
-.lbl{font-size: 19px}
 
+.lbl {
+    font-size: 19px
+}
+
+.low {
+    --sb-track-color: #201f2300;
+    ;
+    --sb-thumb-color: #635970;
+    --sb-size: 30px;
+
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+}
+
+.low::-webkit-scrollbar {
+    width: var(--sb-size)
+}
+
+.low::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 8px;
+}
+
+.low::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 8px;
+    border: 6px solid #201f23;
+}

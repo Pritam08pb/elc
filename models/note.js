@@ -7,6 +7,9 @@ const noteSchema = new mongoose.Schema({
   subject: String,
   info: String,
   pdfUrl: String,
+  username: String,
+  profileUrl: String,
+  time: String,
 });
 
 const Note = mongoose.models.Note || mongoose.model('Note', noteSchema);
