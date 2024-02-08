@@ -3,7 +3,7 @@ import styles from "@/styles/Home.module.css";
 import Resource from "@/components/resourse";
 import Navigation from "../components/navigation";
 import Admin from "../components/admin";
-import Forum from "../components/forum";
+import Chat from "../components/Chat";
 import Assignment from "../components/assignment";
 import Profile from "../components/profile";
 import { useState, useEffect } from "react";
@@ -56,6 +56,7 @@ export default function Main() {
     }
   }, [router]);
 
+
   return (
     <>
       <div className={styles.parent}>
@@ -64,11 +65,11 @@ export default function Main() {
           activeComponent={val}
           decodedToken={decodedToken}
         />
-        {val === "Admin" && <Admin />}
+        {val === "Admin" && <Admin decodedToken={decodedToken} />}
         {val === "Home" && <Profile decodedToken={decodedToken} />}
         {val === "Resource" && <Resource />}
         {val === "Assn" && <Assignment />}
-        {val === "Forum" && <Forum />}
+        {val === "Forum" && <Chat decodedToken={decodedToken}/>}
       </div>
     </>
   );
