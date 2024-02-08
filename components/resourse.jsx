@@ -7,23 +7,67 @@ const resourse = () => {
   const [activeNotes, setActiveNotes] = useState([]);
   const [active, setActive] = useState(false);
   const [load, setload] = useState(false);
+
+  const [selectedSemester, setSelectedSemester] = useState("Semester");
+  const [selectedSubject, setSelectedSubject] = useState("Subject");
+  const [sem, setSem] = useState("");
+  const [subject, setSubject] = useState("");
+  const semesters = [
+    "Semester",
+    "First",
+    "Second",
+    "Third",
+    "Fourth",
+    "Fifth",
+    "Sixth",
+    "Seventh",
+    "Eighth",
+  ];
+
+  const subjects = {
+    Semester: ["Subject"],
+    First: ["Subject", "Math", "Mechanical", "Electrical", "C++", "Physics"],
+    Second: ["Subject", "DSUC", "OOPS java"],
+    Third: ["Subject", "SubjectA", "SubjectB", "SubjectC"],
+    Fourth: ["Subject", "SubjectX", "SubjectY", "SubjectZ"],
+    Fifth: ["Subject", "SubjectM", "SubjectN", "SubjectO"],
+    Sixth: ["Subject", "SubjectP", "SubjectQ", "SubjectR"],
+    Seventh: ["Subject", "SubjectL", "SubjectK", "SubjectJ"],
+    Eighth: ["Subject", "SubjectD", "SubjectE", "SubjectF"],
+  };
+  const handleSemesterChange = (event) => {
+    const selectedSemester = event.target.value;
+    setSelectedSemester(selectedSemester);
+    setSelectedSubject(subjects[selectedSemester][0]);
+  };
+  async function fetchNotes() {
+    try {
+      const response = await fetch("/api/getnotes");
+      if (response.ok) {
+        const data = await response.json();
+        const filteredNotes = data.filter(note => {
+          return (
+            (selectedSemester === "Semester" || note.sem === selectedSemester) &&
+            (selectedSubject === "Subject" || note.subject === selectedSubject)
+          );
+        });
+        setNotes(filteredNotes);
+        setload(false);
+      } else {
+        console.error("Failed to fetch notes");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
   useEffect(() => {
     // Fetch from server API
     setload(true);
-    async function fetchNotes() {
-      try {
-        const response = await fetch("/api/getnotes");
-        if (response.ok) {
-          const data = await response.json();
-          setNotes(data);
-          setload(false);
-        } else {
-          console.error("Failed to fetch notes");
-        }
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    }
+    fetchNotes();
+  }, [selectedSemester, selectedSubject]);
+  useEffect(() => {
+    // Fetch from server API
+    setload(true);
 
     fetchNotes();
   }, []);
@@ -43,42 +87,46 @@ const resourse = () => {
       {load && <Loader />}
       <div className={styles.nav}>
         <div className={styles.dropdown}>
-          <button className={styles.button}>
-            Semester
-            <img src="/drop.png" width={"12px"} alt="" />
-          </button>
-          <div className={styles.content}>
-            <a href="#">First</a>
-            <a href="#">Second</a>
-            <a href="#">Third</a>
-            <a href="#">Fourth</a>
-            <a href="#">Fifth</a>
-            <a href="#">Sixth</a>
-            <a href="#">Seventh</a>
-            <a href="#">Eighth</a>
-          </div>
-        </div>
-        <div className={styles.dropdown}>
-          <button className={styles.button}>
-            Subject <img src="/drop.png" width={"12px"} alt="" />
-          </button>
-          <div className={styles.content}>
-            <a href="#">Networking</a>
-            <a href="#">DAA</a>
-            <a href="#">MPMC</a>
-            <a href="#">AI</a>
-            <a href="#">OOPs</a>
-          </div>
+          <select
+            id="semester"
+            className={styles.inputSem}
+            value={selectedSemester}
+            onChange={(e) => {
+              handleSemesterChange(e);
+              setSem(e.target.value);
+            }}
+          >
+            {semesters.map((semester, index) => (
+              <option key={index} value={semester}>
+                {semester}
+              </option>
+            ))}
+          </select>
+          <select
+            id="subject"
+            className={styles.subinput}
+            value={selectedSubject}
+            onChange={(e) => {
+              setSelectedSubject(e.target.value);
+              setSubject(e.target.value);
+            }}
+          >
+            {subjects[selectedSemester].map((subject, index) => (
+              <option key={index} value={subject}>
+                {subject}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
-      <div
-        className={styles.full}
-        
-      >
-        <div className={styles.inner} onMouseEnter={() => {
-          const newActiveNotes = activeNotes.map(() => false);
-          setActiveNotes(newActiveNotes);
-        }}>
+      <div className={styles.full}>
+        <div
+          className={styles.inner}
+          onMouseEnter={() => {
+            const newActiveNotes = activeNotes.map(() => false);
+            setActiveNotes(newActiveNotes);
+          }}
+        >
           {notes.map((note, index) => (
             <a
               key={note.id}
