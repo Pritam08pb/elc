@@ -166,6 +166,7 @@ function Register() {
       password,
       passwordConfirm,
       profileUrl:'',
+      publicid:'',
     };
     console.log(formData);
     if (Object.keys(formData).length === 0) setError("Don't have data");
@@ -182,6 +183,7 @@ function Register() {
       password,
       passwordConfirm,
       profileUrl:'',
+      publicid:'',
     };
     console.log(formData);
     if (Object.keys(formData).length === 0) setError("Don't have data");
