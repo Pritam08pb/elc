@@ -2,12 +2,14 @@
 import connectDb from '../../databases/app';
 import Admin from '../../models/adminModel';
 import cloudinary from 'cloudinary';
-
-cloudinary.config({ 
-  cloud_name: 'doirocccb', 
-  api_key: '627298296818192', 
-  api_secret: 'WJ2lh5eFtld0hVhL6fea7keHOtE' 
+require("dotenv").config({ path: "config.env" });
+ 
+cloudinary.config({  
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
 });
+
 
 export default async function handler(req, res) {
   if (req.method !== 'PATCH') {
