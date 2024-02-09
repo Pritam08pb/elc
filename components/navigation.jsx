@@ -20,6 +20,7 @@ const navigation = ({ onNavigationClick, activeComponent, decodedToken }) => {
       setAdmin(true);
       console.log(admin);
       console.log(registrationNumber);
+      console.log(profileUrl);
     }
   });
   useEffect(() => {
@@ -94,6 +95,7 @@ const navigation = ({ onNavigationClick, activeComponent, decodedToken }) => {
           body: JSON.stringify({
             userId: userId, // Assuming you have userId available in decodedToken
             profileUrl: data.secure_url,
+            publicid: data.public_id,
           }),
         });
 

@@ -1,6 +1,14 @@
 // pages/api/deletenote.js
 import dbConnect from '../../databases/app';
 import Note from '../../models/note';
+import cloudinary from 'cloudinary';
+require("dotenv").config({ path: "config.env" });
+
+cloudinary.config({  
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
 export default async function handler(req, res) {
   await dbConnect();
@@ -8,6 +16,16 @@ export default async function handler(req, res) {
   if (req.method === 'DELETE') {
     try {
       const { note } = req.body;
+      
+      // Delete file from Cloudinary
+      cloudinary.uploader.destroy(note.publicid, function(error, result) {
+        if (error) {
+          console.error('Error deleting file from Cloudinary:', error);
+          return res.status(500).json({ error: 'Error deleting file from Cloudinary' });
+        } else {
+          console.log('File deleted from Cloudinary:', result);
+        }
+      });
 
       // Delete note from the database
       const deletedNote = await Note.findByIdAndDelete(note._id);

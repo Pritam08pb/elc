@@ -45,6 +45,7 @@ const userSchema = new mongoose.Schema({
     profileUrl: {
         type: String, // Assuming it's a URL string
     },
+    publicid:{type: String,},
 });
 
 userSchema.pre('save', async function (next) {

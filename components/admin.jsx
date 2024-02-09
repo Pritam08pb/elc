@@ -87,10 +87,11 @@ const Admin = ({ decodedToken }) => {
           body: formData,
         }
       );
-
+ 
       if (response.ok) {
         const pdfdata = await response.json();
         console.log("Image uploaded successfully:", pdfdata.imageUrl);
+       
         const data = {
           title,
           sem,
@@ -101,7 +102,9 @@ const Admin = ({ decodedToken }) => {
           profileUrl: profileUrl,
           time: new Date().toLocaleString("en-IN", {
             timeZone: "Asia/Kolkata",
-          }), // Add current timestamp in Indian timezone
+          }), 
+          publicid : pdfdata.public_id,
+          senderid:userId,
         };
         try {
           const response = await fetch("/api/upload", {

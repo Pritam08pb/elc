@@ -81,7 +81,7 @@
 .note {
   height: 38%;
   margin-bottom: 30px;
-  margin-top: 16px;
+  margin-top: 20px;
   width: 17.5%;
   background-color: #61409a;
   display: flex;
@@ -196,8 +196,10 @@
 
 .inputSem option:focus,
 .subinput option:focus {
-  background-color: #61409a; /* Change active option background color to purple */
-  color: white; /* Set text color to white */
+  background-color: #61409a;
+  /* Change active option background color to purple */
+  color: white;
+  /* Set text color to white */
 }
 
 

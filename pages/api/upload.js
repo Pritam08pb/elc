@@ -6,8 +6,8 @@ connectDB(); // Call the database connection function to establish the connectio
 export default async function handler(req, res) {
   if (req.method == 'POST') {
     try {
-      const { title, sem, subject, info, pdfUrl, username, profileUrl, time  } = req.body
-      
+      const { title, sem, subject, info, pdfUrl, username, profileUrl, time, publicid, senderid  } = req.body
+       
 
       console.log('Received data:', req.body);
       console.log('title:', title);
@@ -24,7 +24,9 @@ export default async function handler(req, res) {
         pdfUrl,
         username,
         profileUrl,
-        time
+        time, 
+        publicid,
+        senderid,
       });
 
       console.log('New Note:', newNote.toObject());

@@ -7,6 +7,7 @@ const resourse = () => {
   const [activeNotes, setActiveNotes] = useState([]);
   const [active, setActive] = useState(false);
   const [load, setload] = useState(false);
+  const [profileUrls, setProfileUrls] = useState({});
 
   const [selectedSemester, setSelectedSemester] = useState("Semester");
   const [selectedSubject, setSelectedSubject] = useState("Subject");
@@ -60,11 +61,27 @@ const resourse = () => {
       console.error("Error:", error);
     }
   }
+  
+
   useEffect(() => {
     // Fetch from server API
     setload(true);
     fetchNotes();
   }, [selectedSemester, selectedSubject]);
+
+  useEffect(() => {
+    const fetchProfileUrls = async () => {
+      const urls = {};
+      for (const note of notes) {
+        const profileUrl = await fetchUserProfileUrl(note.senderid);
+        urls[note.senderid] = profileUrl;
+      }
+      setProfileUrls(urls);
+    };
+
+    fetchProfileUrls();
+  }, [notes]);
+
   useEffect(() => {
     // Fetch from server API
     setload(true);
@@ -82,6 +99,29 @@ const resourse = () => {
     newActiveNotes[index] = false;
     setActiveNotes(newActiveNotes);
   };
+  const fetchUserProfileUrl = async (senderid) => {
+    try {
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ "senderid": senderid })
+      };
+
+      const response = await fetch('/api/getdata', requestOptions);
+
+      if (response.ok) {
+        const userData = await response.json();
+        return userData.profileUrl; // Assuming profileUrl is returned from the backend
+      } else {
+        console.error('Failed to fetch user profile');
+        return null;
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      return null;
+    }
+};
+
   return (
     <div>
       {load && <Loader />}
@@ -152,7 +192,7 @@ const resourse = () => {
                   <div className={styles.profile}>
                     <img
                       className={styles.profileimg}
-                      src={note.profileUrl}
+                      src={profileUrls[note.senderid]}
                       alt=""
                     />
                     {note.username}

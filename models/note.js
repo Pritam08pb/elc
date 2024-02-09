@@ -10,6 +10,8 @@ const noteSchema = new mongoose.Schema({
   username: String,
   profileUrl: String,
   time: String,
+  publicid : String,
+  senderid: String,
 });
 
 const Note = mongoose.models.Note || mongoose.model('Note', noteSchema);
@@ -17,3 +19,4 @@ const Note = mongoose.models.Note || mongoose.model('Note', noteSchema);
 module.exports = Note;
 
 
+ 
